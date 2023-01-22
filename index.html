@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SEGA</title>
+    <style media="screen">
+      html,body { margin: 0; overflow: hidden; height: 100%; }
+      #root { background: #000; display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; }
+
+      .sega { display: flex; zoom: 3;  }
+        .sega i { height: 31px; overflow: hidden; margin-left: -1px; image-rendering: pixelated; background-repeat: no-repeat; position: relative; }
+        #s { width: 22px; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAfCAYAAADjuz3zAAAAqElEQVRIidWWSw6AMAhEGcP9rzxu1FTTD1BYOLs29GGBgpCOSLK3HxYvZXD6iyxw9tVJ8sgEtgJJAsDIc5g8OrwDHYZidgurymJcBlaroTfmZrC3crZDgUvp4NbBEgwAkTpu4RAZ1+0KvjwTfWWmV5sJL+1uTx1/E7bbK9Tb3awO1WPs0f+62xZ4NhD0NoiAp7mpGP0ihTGu+QMSxwSxAF9tM+OLe0k8Adisk+0VGMyzAAAAAElFTkSuQmCC) }
+        #e { width: 23px; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAfCAYAAAAMeVbNAAAAhElEQVRIie2WSwrAMAhEO6X3v/J004UBa8QPRejsEpKnGTGIQxFJavsp8VEVS19UwjtsIMmzGioFkgQAK4Mw3bqcAZu27F7kUavnrfDLezDivxvu9V8mMdfz7wqa/XNMeKSJ/oJuNatDZTJzPX+FA0B7E6Ung5GjxRKplVc9K6qNURXgBho+d+DRSHpJAAAAAElFTkSuQmCC) }
+        #g { width: 23px; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAfCAYAAAAMeVbNAAAAmklEQVRIidWWSwqAMAxEM+L9r/zciIik6ccEdHYt9MXOFBOZIwBv/5U4lcXyF5nwChsAtmzoXQKQpOgLVuF7DxoVjgTgwnu3GVWp56XwpudPrQQ7DDebC7f8nf8XPuV5FKqXR0qgraL/9fw78Nk2OBzoyl/yO7akwCUpY8yQWdx5Rgs8zzfbXHRoRqWeXyqbuO4bmbPiqxB7OgD5aHf1qOnwZgAAAABJRU5ErkJggg==) }
+        #a { width: 29px; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAfCAYAAAAbW8YEAAAAqklEQVRIidWWSw7AIAhEO03vf2W6MjFdCANjsOz8wMiTEHCRZmY2rwGAjUGJfQVX+xJBxR2poFQ4EyTic+ees8lWL/aKx8v2H5nO+5E7ZcGoqHd2Dl4GmwQxiyyD+Ay8GVwlxNlqZM/68VYwpXwrvZT1T+GtTguuqJlZZA4CgK0NoRqnp3pVWXo+LZnOf/4ww/KW+dYTqIoO/zBeRZYDcUv1hkTVf8l1EZG9TkAPNmPGVMkAAAAASUVORK5CYII=) }
+
+        @keyframes animate-background { from { background-position: left } to { background-position: right } }
+        .sega i::before { content: ''; animation: animate-background 6s linear infinite; width: calc( (5px / 0.9659) * 20); background-size: 300% 100%; background-position: 0 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-image: repeating-linear-gradient(75deg, #00c0e0 0, #00a0e0 5px, #0080e0 10px, #0060e0 15px, #0040e0 20px, #0020e0 25px, #0000e0 30px, #0000c0 35px, #0000a0 40px, #000080 45px, #000060 50px, #000080 55px, #0000a0 60px, #0000c0 65px, #0000e0 70px, #0020e0 75px, #0040e0 80px, #0060e0 85px, #0080e0 90px, #00a0e0 95px, #00c0e0 100px); }
+        #s::before { -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAfCAYAAADjuz3zAAAAoklEQVRIidWVQQ6AIAwEF+P/v4wXIdiwlpY20TmSOMWFUiCJQtbrrvcMFnaODKkUh9IyZrtlZ6AiM5ZSbzyFRbEjBZCYcZr4LWOJ6SAtYtPNiYiizopGZvyQM3GFrzm6vMwWBzQ5/UYTa7BGenSe99fTbsUUeY93o6FiVmRkqWATh04P4I+v266YDgT3TLuhL542TD0U4MMZS3q0lgmyJEznAoWmF0MHGBjwAAAAAElFTkSuQmCC) }
+        #e::before { -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAfCAYAAAAMeVbNAAAAgklEQVRIie2W0QoAERBFr83//7J9IonBzNyV2vOonHRvA4BIGKwnD3ckSAsPS9zK3cmZS6ce9TKlzbwn1sYVpFgsYgDkzKnyWeY128XuyFfzL4e4N/Ojhaqnc0WuGaK/UJnrJjQjXrlmjskTjENEfUPrjd5fi+8KNeXbg/pXdHCMeQHueQ1JgD58swAAAABJRU5ErkJggg==) }
+        #g::before { -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAfCAYAAAAMeVbNAAAAjklEQVRIidWWSw6AIAxEB+P9r4wrDUJbHWlNmSUJA3kvfIDAFGW8enTvAaVXtqjivtw9J3Nr15qXx/TM2YWtDELb4mkHocxDyy3mfWixTDnAeSjrMk8jFLClDj68hIqLrss8VXkBcVIZofQtmQqLS3kFyVdKO5k6IMqGbvPeCP383P3GfIqvlNC/okOHngM34Q9LeqwuggAAAABJRU5ErkJggg==) }
+        #a::before { -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAfCAYAAAAbW8YEAAAAuElEQVRIidWW4Q6AIAiEofn+r2w/Gs05EQ5c2v0N7uSbUUQbxIGemvVAGvqwsJe30AqE/DxF3kC35wUaLpF1Km1Kdj4fasukkVCmZ8JKsVduGopeIHfvL/AKWlEIsRaaQWt6HI+3RyuCEY9CV6Cdeh2NV0MrghD3oSvRqp5RvEzBFegNtdCK3IjbUAStLHykfhj6mSR09jFGJzrqd+U9fCFskvCNbVWMAG3XpoQu/KwqGrpMyO79t27DKSQuchedtAAAAABJRU5ErkJggg==) }
+
+    </style>
+    <script type="text/javascript">
+      const createNode = (options) => {
+        const node = document.createElement(options.tag);
+        if(options.className) node.setAttribute('class',options.className);
+        if(options.innerHTML) node.innerHTML = options.innerHTML;
+        if(options.attributes) Object.keys(options.attributes).forEach(key => node.setAttribute(key,options.attributes[key]) );
+        if(options.style) Object.keys(options.style).forEach(key => node.style[key] = options.style[key]);
+        if(options.event_listeners) Object.keys(options.event_listeners).forEach(key => node.addEventListener(key,options.event_listeners[key]) )
+        options.root.appendChild(node);
+        return node;
+      }
+      class App {
+        constructor(){
+          document.addEventListener('DOMContentLoaded',this.init.bind(this));
+          // document.addEventListener('mousemove',this.mousemove.bind(this));
+          this.frame = 0;
+        }
+        async init(){
+          if(this.interval) cancelAnimationFrame(this.interval);
+          this.root = document.getElementById('root');
+          this.sega = createNode({ root: this.root, tag: 'div', attributes: { class: 'sega' } });
+          this.sega_s = createNode({ root: this.sega, tag: 'i', attributes: { id: 's', draggable: 'false' } });
+          this.sega_e = createNode({ root: this.sega, tag: 'i', attributes: { id: 'e', draggable: 'false' } });
+          this.sega_g = createNode({ root: this.sega, tag: 'i', attributes: { id: 'g', draggable: 'false' } });
+          this.sega_a = createNode({ root: this.sega, tag: 'i', attributes: { id: 'a', draggable: 'false' } });
+          // this.interval = window.requestAnimationFrame(this.render.bind(this));
+        }
+        async render(){
+          this.frame++;
+          // this.interval = window.requestAnimationFrame(this.render.bind(this));
+        }
+      }
+      const app = new App();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
