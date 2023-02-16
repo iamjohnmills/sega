@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>SEGA</title>
     <style media="screen">
@@ -9,15 +9,14 @@
       * { box-sizing: border-box; }
       html,body { margin: 0; overflow: hidden; height: 100%; }
       #root { display: flex; width: 100%; height: 100%; padding: 30px; align-items: center; justify-content: center; background: linear-gradient(to bottom, #31283a, #1a101f) }
-
-      .tv { position: relative; transform: scale(1); transition: transform 0.3s ease-in-out; }
+      .glow { mix-blend-mode: saturation; position: absolute; left: 50%; margin-top: -100px; margin-left: -300px; filter: blur(60px); background: #ff0099; width: 600px; height: 400px; opacity: 0.6; border-radius: 50%;}
+      .tv { z-index: 1; position: relative; transform: scale(1); transition: transform 0.3s ease-in-out; }
       .screen { position: absolute; z-index: 1; left: 60px; top: 70px; right: 60px; bottom: 125px; background: #000; display: flex; align-items: center; justify-content: center; }
       .scanlines { position: absolute; z-index: 1; left: 60px; top: 70px; right: 60px; bottom: 125px; background-image: url(rgb-scanlines.png); mix-blend-mode: hard-light; opacity: 0.1; }
       .bezel { position: relative; z-index: 2; filter: drop-shadow(0 0 2px rgba(0,0,0,0.6)); background-image: url(bezel.svg); width: 600px; height: 600px; }
-
       @media (min-width: 0) {
-        .tv { transform: scale(0.6) }
-        .sega { transform: scale(2) }
+        .tv { transform: scale(0.5) }
+        .sega { transform: scale(2.5) }
       }
       @media (min-width: 500px) {
         .tv { transform: scale(0.7) }
@@ -27,7 +26,6 @@
         .tv { transform: scale(0.8) }
         .sega { transform: scale(2.5) }
       }
-
       .sega { display: flex; position: relative; z-index: 1; }
       .sega i { height: 31px; overflow: hidden; position: relative; margin-left: -1px }
       .sega i::before { content: ''; animation: animate-background 6s linear infinite; width: calc( (5px / 0.9659) * 20); background-size: 300% 100%; background-position: 0 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
@@ -174,6 +172,7 @@
   </head>
   <body>
     <div id="root">
+      <div class="glow"></div>
       <div class="tv">
         <div class="screen">
           <div class="sega">
