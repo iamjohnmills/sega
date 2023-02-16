@@ -1,27 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 11 11">
   <defs>
-    <!-- <path id="bezel" d="M0 4V1c0-1 0-1 1-1h7c1 0 1 0 1 1v6c0 1 0 1-1 1H1C0 8 0 8 0 7V4h.2v1C.3 7.4.4 7.5 3 7.6h3c2.6-.1 2.7-.2 2.8-2.6V3C8.7.6 8.6.5 6 .4H3C.4.5.3.6.2 3v1" />
-    <path id="screen" d="M 3 0.4 C 4 0.4 5 0.4 6 0.4 C 8.6 0.5 8.7 0.6 8.8 3 L 8.8 5 C 8.7 7.4 8.6 7.5 6 7.6 L 3 7.6 C 0.4 7.5 0.3 7.4 0.2 5 L 0.2 3 C 0.3 0.6 0.4 0.5 3 0.4" /> -->
-
     <path id="bezel" d="M1 5 1 2C1 1 1 1 2 1 2 1 9 1 9 1 10 1 10 1 10 2 10 8 10 2 10 8 10 9 10 9 9 9L2 9C1 9 1 9 1 8L1 5 1.2 5 1.2 6C1.3 8.4 1.4 8.5 4 8.6L7 8.6C9.6 8.5 9.7 8.4 9.8 6L9.8 4C9.7 1.6 9.6 1.5 7 1.4L4 1.4C1.4 1.5 1.3 1.6 1.2 4L1.2 4 1.2 5" />
     <path id="screen" d="M4 1.4C5 1.4 6 1.4 7 1.4 9.6 1.5 9.7 1.6 9.8 4L9.8 6C9.7 8.4 9.6 8.5 7 8.6L4 8.6C1.4 8.5 1.3 8.4 1.2 6L1.2 4C1.3 1.6 1.4 1.5 4 1.4" />
-
     <path id="bezel-outer" d="M1 5 1 2C1 1 1 1 2 1 2 1 9 1 9 1 10 1 10 1 10 2 10 8 10 2 10 8 10 9 10 9 9 9L2 9C1 9 1 9 1 8L1 5" />
-
-    <!-- <path id="screen-mask" d="M0 4 0 4 0 1C0 0 0 0 1 0 1 0 10 0 10 0 11 0 11 0 11 1 11 9 11 1 11 9 11 10 11 10 10 10L1 10C0 10 0 10 0 9L0 5 1.2 5 1.2 6C1.3 8.4 1.4 8.5 4 8.6L7 8.6C9.6 8.5 9.7 8.4 9.8 6L9.8 4C9.7 1.6 9.6 1.5 7 1.4L4 1.4C1.4 1.5 1.3 1.6 1.2 4L1.2 5 1.2 5 0 5 0 4" /> -->
     <path id="screen-mask" d="M0 4 0 4 0 1C0 0 0 0 1 0 1 0 10 0 10 0 11 0 11 0 11 1 11 10 11 1 11 10 11 11 11 11 10 11L1 11C0 11 0 11 0 10L0 5 1.2 5 1.2 6C1.3 8.4 1.4 8.5 4 8.6L7 8.6C9.6 8.5 9.7 8.4 9.8 6L9.8 4C9.7 1.6 9.6 1.5 7 1.4L4 1.4C1.4 1.5 1.3 1.6 1.2 4L1.2 5 1.2 5 0 5 0 4" />
-
-
     <radialGradient id="gradient-outer-top" cx="0.5" cy="0" >
       <stop offset="0%" stop-color="#555" />
       <stop offset="100%" stop-color="#222" />
     </radialGradient>
-
     <radialGradient id="gradient-outer-bottom" cx="0.5" cy="1" >
       <stop offset="0%" stop-color="rgba(255,255,255,0.04)" />
       <stop offset="100%" stop-color="transparent" />
     </radialGradient>
-
     <linearGradient id="gradient-top-left" gradientTransform="rotate(-30)">
       <stop offset="0%" stop-color="#333" />
       <stop offset="25%" stop-color="#1a1a1a" />
@@ -38,21 +28,12 @@
       <stop offset="20%" stop-color="#777" />
       <stop offset="45%" stop-color="#555" />
     </linearGradient>
-
-    <!-- <pattern id="rgb-scanlines" x="0" y="0" width="0.017" height="0.021">
-      <rect x="0" y="0" width="0.15" height="0.05" fill="rgba(0,0,0,0.1)" />
-      <rect x="0" y="0.05" width="0.05" height="0.1" fill="rgba(255,0,0,0.1)" />
-      <rect x="0.05" y="0.05" width="0.05" height="0.1" fill="rgba(0,128,0,0.1)" />
-      <rect x="0.1" y="0.05" width="0.05" height="0.1" fill="rgba(0,0,255,0.3)" />
-    </pattern> -->
-
     <radialGradient id="screen-glare-a" >
       <stop offset="0%" stop-color="rgba(255,255,255,0.2)" />
       <stop offset="100%" stop-color="rgba(255,255,255,0.1)" />
     </radialGradient>
-
-    <radialGradient id="screen-glare-b" cx="0.5" cy="0">
-      <stop offset="0%" stop-color="rgba(255,255,255,0.1)" />
+    <radialGradient id="screen-glare-b" cx="0.6" cy="0" fx="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.2)" />
       <stop offset="100%" stop-color="rgba(255,255,255,0)" />
     </radialGradient>
 
@@ -64,10 +45,8 @@
         <feFuncA type="linear" slope="0.4"/>
       </feComponentTransfer>
     </filter>
-
     <mask id="bezel-outer-mask">
       <use xlink:href="#bezel-outer" fill="white" />
-      <!-- <path x="1" y="1" fill="white" d="M0 4V1c0-1 0-1 1-1h7c1 0 1 0 1 1v6c0 1 0 1-1 1H1C0 8 0 8 0 7V4" /> -->
     </mask>
     <mask id="bezel-inner-mask">
       <use xlink:href="#bezel" fill="white" />
