@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>SEGA</title>
     <style media="screen">
       @keyframes animate-background { from { background-position: left } to { background-position: right } }
       * { box-sizing: border-box; }
       html,body { margin: 0; overflow: hidden; height: 100%; }
-      #root { display: flex; min-width: 610px; width: 100%; height: 100%; padding: 30px; align-items: center; justify-content: center; background: linear-gradient(to bottom, #31283a, #1a101f) }
-      #tv { z-index: 1; position: relative; width: 550px; height: 550px;  }
-      #tv:before { content: ''; z-index: 3; position: absolute; left: 30px; top: 30px; bottom: 30px; right: 30px; background-image: url(rgb-scanlines.png); opacity: 0.1; mix-blend-mode: hard-light; }
-      #tv:after { content: ''; z-index: 3; position: absolute; width: 100%; height: 100%; filter:drop-shadow(0 1px 2px rgba(0,0,0,0.4)); background-image: url(bezel.svg); background-repeat: no-repeat; }
-      #screen { background: #000; position: absolute; top: 30px; right: 30px; bottom: 80px; left: 30px; display: flex; align-items: center; justify-content: center; }
-      .sega { display: flex; zoom: 3; position: relative; z-index: 1; }
+      #root { display: flex; width: 100%; height: 100%; padding: 30px; align-items: center; justify-content: center; background: linear-gradient(to bottom, #31283a, #1a101f) }
+
+      .tv { position: relative; transform: scale(1); transition: transform 0.3s ease-in-out; }
+      .screen { position: absolute; z-index: 1; left: 60px; top: 70px; right: 60px; bottom: 125px; background: #000; display: flex; align-items: center; justify-content: center; }
+      .scanlines { position: absolute; z-index: 1; left: 60px; top: 70px; right: 60px; bottom: 125px; background-image: url(rgb-scanlines.png); mix-blend-mode: hard-light; opacity: 0.1; }
+      .bezel { position: relative; z-index: 2; filter: drop-shadow(0 0 2px rgba(0,0,0,0.6)); background-image: url(bezel.svg); width: 600px; height: 600px; }
+
+      @media (min-width: 0) {
+        .tv { transform: scale(0.6) }
+        .sega { transform: scale(2) }
+      }
+      @media (min-width: 500px) {
+        .tv { transform: scale(0.7) }
+        .sega { transform: scale(2) }
+      }
+      @media (min-width: 750px) {
+        .tv { transform: scale(0.8) }
+        .sega { transform: scale(2.5) }
+      }
+
+      .sega { display: flex; position: relative; z-index: 1; }
       .sega i { height: 31px; overflow: hidden; position: relative; margin-left: -1px }
       .sega i::before { content: ''; animation: animate-background 6s linear infinite; width: calc( (5px / 0.9659) * 20); background-size: 300% 100%; background-position: 0 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
       .sega i::before { background-image: repeating-linear-gradient(75deg, #00c0e0 0, #00a0e0 5px, #0080e0 10px, #0060e0 15px, #0040e0 20px, #0020e0 25px, #0000e0 30px, #0000c0 35px, #0000a0 40px, #000080 45px, #000060 50px, #000080 55px, #0000a0 60px, #0000c0 65px, #0000e0 70px, #0020e0 75px, #0040e0 80px, #0060e0 85px, #0080e0 90px, #00a0e0 95px, #00c0e0 100px); }
       .sega i::after { content: ''; position: relative; z-index: 1; display: block; width: 1px; height: 1px; margin-left: -1px; }
-      #s { width: 22px; z-index: 4; }
-      #s::after { box-shadow:
+      .s { width: 22px; z-index: 4; }
+      .s::after { box-shadow:
         1px 0 #000, 2px 0 #000, 3px 0 #000, 4px 0 #000, 5px 0 #000, 6px 0 #fff, 7px 0 #fff, 8px 0 #fff, 9px 0 #fff, 10px 0 #fff, 11px 0 #fff, 12px 0 #fff, 13px 0 #fff, 14px 0 #fff, 15px 0 #fff, 16px 0 #fff, 17px 0 #fff, 18px 0 #fff, 19px 0 #fff, 20px 0 #fff, 21px 0 #fff, 22px 0 #fff,
         1px 1px #000, 2px 1px #000, 3px 1px #000, 4px 1px #fff, 5px 1px #fff, 22px 1px #fff,
         1px 2px #000, 2px 2px #000, 3px 2px #fff, 22px 2px #fff,
@@ -52,8 +67,8 @@
         1px 29px #fff, 18px 29px #fff, 19px 29px #fff, 20px 29px #000, 21px 29px #000, 22px 29px #000,
         1px 30px #fff, 2px 30px #fff, 3px 30px #fff, 4px 30px #fff, 5px 30px #fff, 6px 30px #fff, 7px 30px #fff, 8px 30px #fff, 9px 30px #fff, 10px 30px #fff, 11px 30px #fff, 12px 30px #fff, 13px 30px #fff, 14px 30px #fff, 15px 30px #fff, 16px 30px #fff, 17px 30px #fff, 18px 30px #000, 19px 30px #000, 20px 30px #000, 21px 30px #000, 22px 30px #000
       }
-      #e { width: 23px; z-index: 3;  }
-      #e::after { box-shadow:
+      .e { width: 23px; z-index: 3;  }
+      .e::after { box-shadow:
         1px 0 #000, 2px 0 #000, 3px 0 #000, 4px 0 #000, 5px 0 #000, 6px 0 #fff, 7px 0 #fff, 8px 0 #fff, 9px 0 #fff, 10px 0 #fff, 11px 0 #fff, 12px 0 #fff, 13px 0 #fff, 14px 0 #fff, 15px 0 #fff, 16px 0 #fff, 17px 0 #fff, 18px 0 #fff, 19px 0 #fff, 20px 0 #fff, 21px 0 #fff, 22px 0 #fff, 23px 0 #fff,
         1px 1px #000, 2px 1px #000, 3px 1px #000, 4px 1px #fff, 5px 1px #fff, 23px 1px #fff,
         1px 2px #000, 2px 2px #000, 3px 2px #fff, 23px 2px #fff,
@@ -86,8 +101,8 @@
         1px 29px #000, 2px 29px #000, 3px 29px #000, 4px 29px #fff, 5px 29px #fff, 23px 29px #fff,
         1px 30px #000, 2px 30px #000, 3px 30px #000, 4px 30px #000, 5px 30px #000, 6px 30px #fff, 7px 30px #fff, 8px 30px #fff, 9px 30px #fff, 10px 30px #fff, 11px 30px #fff, 12px 30px #fff, 13px 30px #fff, 14px 30px #fff, 15px 30px #fff, 16px 30px #fff, 17px 30px #fff, 18px 30px #fff, 19px 30px #fff, 20px 30px #fff, 21px 30px #fff, 22px 30px #fff, 23px 30px #fff
       }
-      #g { width: 23px; z-index: 2; }
-      #g::after { box-shadow:
+      .g { width: 23px; z-index: 2; }
+      .g::after { box-shadow:
         1px 0 #000, 2px 0 #000, 3px 0 #000, 4px 0 #000, 5px 0 #000, 6px 0 #fff, 7px 0 #fff, 8px 0 #fff, 9px 0 #fff, 10px 0 #fff, 11px 0 #fff, 12px 0 #fff, 13px 0 #fff, 14px 0 #fff, 15px 0 #fff, 16px 0 #fff, 17px 0 #fff, 18px 0 #fff, 19px 0 #fff, 20px 0 #fff, 21px 0 #fff, 22px 0 #fff, 23px 0 #fff,
         1px 1px #000, 2px 1px #000, 3px 1px #000, 4px 1px #fff, 5px 1px #fff, 23px 1px #fff,
         1px 2px #000, 2px 2px #000, 3px 2px #fff, 23px 2px #fff,
@@ -120,9 +135,9 @@
         1px 29px #000, 2px 29px #000, 3px 29px #000, 4px 29px #fff, 5px 29px #fff,
         1px 30px #000, 2px 30px #000, 3px 30px #000, 4px 30px #000, 5px 30px #000, 6px 30px #fff, 7px 30px #fff, 8px 30px #fff, 9px 30px #fff, 10px 30px #fff, 11px 30px #fff, 12px 30px #fff, 13px 30px #fff, 14px 30px #fff, 15px 30px #fff, 16px 30px #fff, 17px 30px #fff, 18px 30px #fff, 19px 30px #fff, 20px 30px #fff, 21px 30px #fff, 22px 30px #fff, 23px 30px #fff
       }
-      #g > b { position: absolute; background: #fff; width: 1px; height: 6px; right: 0; bottom: 0; }
-      #a { width: 29px; z-index: 1; }
-      #a::after { box-shadow:
+      .g > b { position: absolute; background: #fff; width: 1px; height: 6px; right: 0; bottom: 0; }
+      .a { width: 29px; z-index: 1; }
+      .a::after { box-shadow:
         1px 0 #000, 2px 0 #000, 3px 0 #000, 4px 0 #000, 5px 0 #000, 6px 0 #000, 7px 0 #000, 8px 0 #000, 9px 0 #000, 10px 0 #000, 11px 0 #000, 12px 0 #000, 13px 0 #fff, 14px 0 #fff, 15px 0 #fff, 16px 0 #fff, 17px 0 #000, 18px 0 #000, 19px 0 #000, 20px 0 #000, 21px 0 #000, 22px 0 #000, 23px 0 #000, 24px 0 #000, 25px 0 #000, 26px 0 #000, 27px 0 #000, 28px 0 #000, 29px 0 #000,
         1px 1px #000, 2px 1px #000, 3px 1px #000, 4px 1px #000, 5px 1px #000, 6px 1px #000, 7px 1px #000, 8px 1px #000, 9px 1px #000, 10px 1px #000, 11px 1px #fff, 12px 1px #fff, 17px 1px #fff, 18px 1px #fff, 19px 1px #000, 20px 1px #000, 21px 1px #000, 22px 1px #000, 23px 1px #000, 24px 1px #000, 25px 1px #000, 26px 1px #000, 27px 1px #000, 28px 1px #000, 29px 1px #000,
         1px 2px #000, 2px 2px #000, 3px 2px #000, 4px 2px #000, 5px 2px #000, 6px 2px #000, 7px 2px #000, 8px 2px #000, 9px 2px #000, 10px 2px #fff, 19px 2px #fff, 20px 2px #000, 21px 2px #000, 22px 2px #000, 23px 2px #000, 24px 2px #000, 25px 2px #000, 26px 2px #000, 27px 2px #000, 28px 2px #000, 29px 2px #000,
@@ -159,15 +174,17 @@
   </head>
   <body>
     <div id="root">
-      <div id="tv">
-        <div id="screen">
+      <div class="tv">
+        <div class="screen">
           <div class="sega">
-            <i id="s" draggable="false"></i>
-            <i id="e" draggable="false"></i>
-            <i id="g" draggable="false"><b></b></i>
-            <i id="a" draggable="false"></i>
+            <i class="s" draggable="false"></i>
+            <i class="e" draggable="false"></i>
+            <i class="g" draggable="false"><b></b></i>
+            <i class="a" draggable="false"></i>
           </div>
         </div>
+        <div class="scanlines"></div>
+        <div class="bezel"></div>
       </div>
     </div>
   </body>
