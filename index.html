@@ -6,9 +6,14 @@
     <title>SEGA</title>
     <style media="screen">
       @keyframes animate-background { from { background-position: left } to { background-position: right } }
+      * { box-sizing: border-box; }
       html,body { margin: 0; overflow: hidden; height: 100%; }
-      #root { background: #000; display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; }
-      .sega { display: flex; zoom: 3; }
+      #root { display: flex; min-width: 610px; width: 100%; height: 100%; padding: 30px; align-items: center; justify-content: center; background: linear-gradient(to bottom, #31283a, #1a101f) }
+      #tv { z-index: 1; position: relative; width: 550px; height: 550px;  }
+      #tv:before { content: ''; z-index: 3; position: absolute; left: 30px; top: 30px; bottom: 30px; right: 30px; background-image: url(rgb-scanlines.png); opacity: 0.1; mix-blend-mode: hard-light; }
+      #tv:after { content: ''; z-index: 3; position: absolute; width: 100%; height: 100%; filter:drop-shadow(0 1px 2px rgba(0,0,0,0.4)); background-image: url(bezel.svg); background-repeat: no-repeat; }
+      #screen { background: #000; position: absolute; top: 30px; right: 30px; bottom: 80px; left: 30px; display: flex; align-items: center; justify-content: center; }
+      .sega { display: flex; zoom: 3; position: relative; z-index: 1; }
       .sega i { height: 31px; overflow: hidden; position: relative; margin-left: -1px }
       .sega i::before { content: ''; animation: animate-background 6s linear infinite; width: calc( (5px / 0.9659) * 20); background-size: 300% 100%; background-position: 0 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
       .sega i::before { background-image: repeating-linear-gradient(75deg, #00c0e0 0, #00a0e0 5px, #0080e0 10px, #0060e0 15px, #0040e0 20px, #0020e0 25px, #0000e0 30px, #0000c0 35px, #0000a0 40px, #000080 45px, #000060 50px, #000080 55px, #0000a0 60px, #0000c0 65px, #0000e0 70px, #0020e0 75px, #0040e0 80px, #0060e0 85px, #0080e0 90px, #00a0e0 95px, #00c0e0 100px); }
@@ -154,11 +159,15 @@
   </head>
   <body>
     <div id="root">
-      <div class="sega">
-        <i id="s" draggable="false"></i>
-        <i id="e" draggable="false"></i>
-        <i id="g" draggable="false"><b></b></i>
-        <i id="a" draggable="false"></i>
+      <div id="tv">
+        <div id="screen">
+          <div class="sega">
+            <i id="s" draggable="false"></i>
+            <i id="e" draggable="false"></i>
+            <i id="g" draggable="false"><b></b></i>
+            <i id="a" draggable="false"></i>
+          </div>
+        </div>
       </div>
     </div>
   </body>
